@@ -1,0 +1,6 @@
+print(type('5'))
+print(type(5))
+print(type(['5']))
+print(type((1, 2)))
+print(type({"name": "Alex"}))
+print(type(tuple()))
