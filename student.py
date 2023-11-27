@@ -27,16 +27,16 @@ class Student:
         if house not in ["Lviv", "New York", "London", "Krakow"]:
             raise ValueError("House is unecceptable")
         self._house = house
+    
+    @classmethod
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
 
 def main():
-    student = get_student()
+    student = Student.get()
     print(student)
-
-
-def get_student():
-    name = input("What's name? ")
-    house = input("House: ")
-    return Student(name, house)
 
 
 if __name__ == "__main__":
