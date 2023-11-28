@@ -22,3 +22,6 @@ class Professor(Wizard):
 
 student = Student("Daryna", "Krakow")
 professor = Professor("Alex", "Engineering management")
+
+print(student.name)
+print(professor.name, professor.subject)
