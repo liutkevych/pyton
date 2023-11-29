@@ -1,3 +1,6 @@
-first, _ = input("What's your name: ").split(" ")
+def total(galleons, sickles, knuts):
+    return (galleons * 17 + sickles) * 29 + knuts
 
-print(f"hello, {first}")
+coins = [100, 50, 25]
+
+print(total(*coins), "Knuts")
