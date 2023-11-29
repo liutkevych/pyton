@@ -8,7 +8,7 @@ def meow(n: int) -> str:
     :return: A string of meows, one per line
     :rtype: str
     """
-    return "meow\n" * 3
+    return "meow\n" * n
 
 number: int = input("Number: ")
 meows: str = meow(number)
