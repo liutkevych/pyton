@@ -1,6 +1,5 @@
 
 students = ["Hermione", "Harry", "Ron"]
 
-gryffindors = {student: "Gryffindonr" for student in students}
-
-print(gryffindors)
+for i, student in enumerate(students, start=1):
+    print(i, student)
