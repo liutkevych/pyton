@@ -1,15 +1,8 @@
-def meow(n: int) -> str:
-    """ 
-    Moew n times. 
+import argparse
 
-    :param n: Number of times to meow
-    :type n: int
-    :raise TypeError: If n is not an int
-    :return: A string of meows, one per line
-    :rtype: str
-    """
-    return "meow\n" * 3
+parser = argparse.ArgumentParser(description="Meow like a cat")
+parser.add_argument("-n", default=1, help="Number of times to meow", type=int)
+arrgs = parser.parse_args()
 
-number: int = input("Number: ")
-meows: str = meow(number)
-print(meows)
+for _ in range(arrgs.n):
+    print("meow")
