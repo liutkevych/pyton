@@ -1,5 +1,8 @@
 import turtle
 
+player_a = input("Player1 name: ").strip()
+player_b = input("Player2 name: ").strip()
+
 wn = turtle.Screen()
 wn.title("Pong by @oli")
 wn.bgcolor("black")
@@ -35,6 +38,18 @@ ball.dx = 2
 ball.dy = 2
 
 
+# Pen
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("orange")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write(
+    f"{player_a}: 0  {player_b}: 0", 
+    align="center", 
+    font=("Courier", 24, "normal")
+)
 
 # Function
 def paddle_a_up():
