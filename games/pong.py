@@ -50,11 +50,6 @@ pen.color("orange")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write(
-    f"{player_a}: {score_a}  {player_b}: {score_b}", 
-    align="center", 
-    font=("Courier", 24, "normal")
-)
 
 # Function
 def paddle_a_up():
@@ -78,12 +73,25 @@ def paddle_b_down():
     y -= 20
     paddle_b.sety(y)
 
+def write_score():
+    pen.write(
+        f"{player_a}: {score_a}  {player_b}: {score_b}", 
+        align="center", 
+        font=("Courier", 24, "normal")
+    )
+
+def play_sound():
+    os.system("afplay bouce.mp3&")
+
 # Keyboard binding
 wn.listen()
 wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
 wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
+
+# Print initial score
+write_score()
 
 # Main game loop
 while True:
@@ -96,37 +104,29 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("afplay bouce.mp3&")
+        play_sound()
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("afplay bouce.mp3&")
+        play_sound()
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
         score_a += 1
         pen.clear()
-        pen.write(
-            f"{player_a}: {score_a}  {player_b}: {score_b}", 
-            align="center", 
-            font=("Courier", 24, "normal")
-        )
+        write_score()
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
         score_b += 1
         pen.clear()
-        pen.write(
-            f"{player_a}: {score_a}  {player_b}: {score_b}", 
-            align="center", 
-            font=("Courier", 24, "normal")
-        )
+        write_score()
     # Paddle and ball colisions
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
-        os.system("afplay bouce.mp3&")
+        play_sound()
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() > paddle_a.ycor() -40 and ball.ycor() < paddle_a.ycor() + 40):
         ball.setx(-340)
         ball.dx *= -1
-        os.system("afplay bouce.mp3&")
+        play_sound()
