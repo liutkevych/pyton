@@ -1,4 +1,5 @@
 import turtle
+import os
 
 player_a = input("Player1 name: ").strip()
 player_b = input("Player2 name: ").strip()
@@ -95,9 +96,11 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        os.system("afplay bouce.mp3&")
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        os.system("afplay bouce.mp3&")
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
@@ -122,6 +125,8 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1
+        os.system("afplay bouce.mp3&")
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() > paddle_a.ycor() -40 and ball.ycor() < paddle_a.ycor() + 40):
         ball.setx(-340)
         ball.dx *= -1
+        os.system("afplay bouce.mp3&")
